@@ -12,7 +12,7 @@ Install dependencies for the Python script **stow_and_wado.py**:
 Run the Python script after changing the base_url variable with your service url (which you will obtain from the created service). This Python script:
 
 - deposits images in a study (provided under the *images* folder) -- the **stow** part
-- and then allows you to retrieve instances under the study -- the **waldo** part
+- and then allows you to retrieve instances under the study -- the **wado** part
 
 ---
 (Optional) Obtain an access token for running the curl commands:
