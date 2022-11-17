@@ -14,10 +14,15 @@ Run the Python script after changing the base_url variable with your service url
 - deposits images in a study (provided under the *images* folder) -- the **stow** part
 - and then allows you to retrieve instances under the study -- the **wado** part
 
+Make sure to include the API version, **v1**, at the end of the base url as in:
+`base_url = f"your_dicom_url.azurehealthcareapis.com/v1" # (line 10)` 
+
 ---
 (Optional) Obtain an access token for running the curl commands:
 
 `token=$(az account get-access-token --resource=https://dicom.healthcareapis.azure.com --query accessToken --output tsv)`
+
+The above az command can be installed as described [here.](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt)
 
 `curl -X GET --header "Authorization: Bearer $token"  https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com/v<version of REST API>/changefeed`
 
