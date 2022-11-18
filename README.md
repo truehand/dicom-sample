@@ -26,11 +26,13 @@ Make sure to include the API version, **v1**, at the end of the base url as in:
 
 The above az command can be installed as described [here.](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt)
 
-`curl -X GET --header "Authorization: Bearer $token"  https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com/v<version of REST API>/changefeed`
-
 For your reference curl command examples are also provided. To run them you need an authentication token passed to the command:
 
 `./command_stow.sh $token`
+
+This will show your changefeed (recent changes on the server):
+`curl -X GET --header "Authorization: Bearer $token"  https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com/v<version of REST API>/changefeed`
+
 
 ---
 Original tutorial can be found in the [Azure DICOM documentation](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicomweb-standard-apis-python)
