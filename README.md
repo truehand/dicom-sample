@@ -1,5 +1,4 @@
-## Azure DICOM Service 
-# dicom-sample
+## Azure DICOM Service Python example to store (stow) and retrieve (wado) DICOMs
 
 First step is to set up a DICOM Service in Azure: [Deploy DICOM](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/deploy-dicom-services-in-azure)
 
@@ -34,9 +33,6 @@ For your reference curl command examples are also provided. To run them you need
 `./command_stow.sh $token`
 
 ---
-Original tutorial can be found in the Azure DICOM documentation:
+Original tutorial can be found in the [Azure DICOM documentation](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicomweb-standard-apis-python)
 
-https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicomweb-standard-apis-python
-
-The example DICOM images included in this repository are from:
-https://github.com/microsoft/dicom-server/tree/main/docs/dcms
+The example DICOM images included in this repository are from [GitHub repository for Azure DICOM server](https://github.com/microsoft/dicom-server/tree/main/docs/dcms)
