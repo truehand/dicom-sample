@@ -1,7 +1,7 @@
 ## Azure DICOM Service 
 # dicom-sample
 
-First step is to srt up a DICOM Service in Azure: [Deploy DICOM](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/deploy-dicom-services-in-azure)
+First step is to set up a DICOM Service in Azure: [Deploy DICOM](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/deploy-dicom-services-in-azure)
 
 [Next, add your Azure user as a DICOM data owner after creating the service](https://learn.microsoft.com/en-us/azure/healthcare-apis/configure-azure-rbac#assign-roles-for-the-dicom-service)
 
