@@ -17,6 +17,7 @@ The script **stow_and_wado.py** will:
 - and then retrieve instances under the same study stored on the DICOM server -- the **wado** part (**W**eb **A**ccess to **D**ICOM **O**bjects)
 
 Make sure to include the API version, **v1**, at the end of the base url as in:
+
 `base_url = f"your_dicom_url.azurehealthcareapis.com/v1" # (line 10)` 
 
 ---
@@ -31,3 +32,11 @@ The above az command can be installed as described [here.](https://learn.microso
 For your reference curl command examples are also provided. To run them you need an authentication token passed to the command:
 
 `./command_stow.sh $token`
+
+---
+Original tutorial can be found in the Azure DICOM documentation:
+
+https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicomweb-standard-apis-python
+
+The example DICOM images included in this repository are from:
+https://github.com/microsoft/dicom-server/tree/main/docs/dcms
