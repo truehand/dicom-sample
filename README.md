@@ -1,18 +1,20 @@
 ## Azure DICOM Service 
 # dicom-sample
 
-[Deploy DICOM](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/deploy-dicom-services-in-azure)
+First step is to srt up a DICOM Service in Azure: [Deploy DICOM](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/deploy-dicom-services-in-azure)
 
-[Add your Azure user as a DICOM data owner after creating the service](https://learn.microsoft.com/en-us/azure/healthcare-apis/configure-azure-rbac#assign-roles-for-the-dicom-service)
+[Next, add your Azure user as a DICOM data owner after creating the service](https://learn.microsoft.com/en-us/azure/healthcare-apis/configure-azure-rbac#assign-roles-for-the-dicom-service)
 
+In your local environment, preferably create a new conda environment, and then install dependencies listed under **requirements.txt**:
 
-Install dependencies for the Python script **stow_and_wado.py**:
 `pip install -r requirements.txt` 
 
-Run the Python script after changing the base_url variable with your service url (which you will obtain from the created service). This Python script:
+Run the main Python script **stow_and_wado.py** after changing the *base_url* variable with your service url (which you will obtain from the created service). 
 
-- deposits images in a study (provided under the *images* folder) -- the **stow** part
-- and then allows you to retrieve instances under the study -- the **wado** part
+The script **stow_and_wado.py** will:
+
+- deposit DICOM images from a study into the DICOM server (images are provided under the *images* folder) -- the **stow** part (**ST**ore **O**ver the **W**eb)
+- and then retrieve instances under the same study stored on the DICOM server -- the **wado** part (**W**eb **A**ccess to **D**ICOM **O**bjects)
 
 Make sure to include the API version, **v1**, at the end of the base url as in:
 `base_url = f"your_dicom_url.azurehealthcareapis.com/v1" # (line 10)` 
