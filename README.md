@@ -8,13 +8,7 @@ In your local environment, preferably create a new conda environment, and then i
 
 `pip install -r requirements.txt` 
 
-Run the main Python script **stow_and_wado.py** after changing the *base_url* variable with your service url (which you will obtain from the created service). 
-
-The script **stow_and_wado.py** will:
-- test the connection by requesting and printing the changefeed of your DICOM service
-- deposit DICOM images from a study into the DICOM server (images are provided under the *images* folder) -- the **stow** part (**ST**ore **O**ver the **W**eb)
-- and then retrieve instances under the same study stored on the DICOM server -- the **wado** part (**W**eb **A**ccess to **D**ICOM **O**bjects)
-
+Change the *base_url* variable with your service url (which you will obtain from the created service). 
 Make sure to include the API version, **v1**, and to update the part `your_dicom_url` to reflect your service name, in the base url, as in:
 
 `base_url = f"your_dicom_url.azurehealthcareapis.com/v1" # (line 10)` 
@@ -22,6 +16,14 @@ Make sure to include the API version, **v1**, and to update the part `your_dicom
 Your service URL can be located on the Azure portal, under your DICOM Service's Overview section.
 
 In this example we are going to use the Azure CLI (command line interface) credentials for authentication. This was made possible by selecting the fourth credential mechanism in the `credential` variable on lines 19-20 (`credential.credentials[3]` in the code). The order of credentials available in the `credential` list may differ from one client to the other, so make sure you are using the CLI one by printing the credentials list first. Once we do that, then we can run `az login` in a terminal window and get authenticated on a browser window that will open, prior to running our Python script in the same terminal. 
+
+Finally, run the main Python script **stow_and_wado.py**
+
+The script **stow_and_wado.py** will:
+- test the connection by requesting and printing the changefeed of your DICOM service
+- deposit DICOM images from a study into the DICOM server (images are provided under the *images* folder) -- the **stow** part (**ST**ore **O**ver the **W**eb)
+- and then retrieve instances under the same study stored on the DICOM server -- the **wado** part (**W**eb **A**ccess to **D**ICOM **O**bjects)
+
 
 ---
 (Optional) Obtain an access token for running the curl commands:
