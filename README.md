@@ -28,7 +28,7 @@ Finally, run the main Python script **stow_and_wado.py**
 ---
 ## Dependencies
 
-Unless you already have az, you need to install it. above az command can be installed as described [here.](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt)
+Unless you already have Azure CLI, the `az` command, you need to install it. az CLI can be installed as described [here.](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt)
 
 In your local environment, preferably create a new conda environment, and then install dependencies listed under **requirements.txt**:
 
