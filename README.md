@@ -21,6 +21,8 @@ Make sure to include the API version, **v1**, and to update the part `your_dicom
 
 Your service URL can be located on the Azure portal, under your DICOM Service's Overview section.
 
+In this example we are going to use the Azure CLI (command line interface) credentials for authentication. This was made possible by selecting the fourth credential mechanism in the `credential` variable on lines 19-20 (`credential.credentials[3]` in the code). The order of credentials available in the `credential` list may differ from one client to the other, so make sure you are using the CLI one by printing the credentials list first. That means that we need to run `az login` and get authenticated on a browser window that will open, prior to running our Python script. 
+
 ---
 (Optional) Obtain an access token for running the curl commands:
 
