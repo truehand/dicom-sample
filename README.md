@@ -1,4 +1,14 @@
-## Azure DICOM Service Python example to store (stow) and retrieve (wado) DICOMs
+# Azure DICOM Service Python example to store (stow) and retrieve (wado) DICOMs
+
+## What is this?
+This is a sample Python code that can interact with the Azure DICOM Service. DICOM (Digital Imaging and Communications in Medicine) is the international standard to transmit, store, retrieve, print, process, and display medical imaging information, and is the primary medical imaging standard accepted across healthcare.
+
+The script **stow_and_wado.py** will:
+- test the connection between your client and the DICOM Service by requesting and printing the changefeed of your DICOM service
+- deposit DICOM images from a study into the DICOM server (images are provided under the *images* folder) -- the **stow** part (**ST**ore **O**ver the **W**eb)
+- and then retrieve instances under the same study stored on the DICOM server -- the **wado** part (**W**eb **A**ccess to **D**ICOM **O**bjects)
+
+## How to get started
 
 First step is to set up a DICOM Service in Azure: [Deploy DICOM](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/deploy-dicom-services-in-azure)
 
@@ -15,14 +25,8 @@ In this example we are going to use the Azure CLI (command line interface) crede
 
 Finally, run the main Python script **stow_and_wado.py**
 
-The script **stow_and_wado.py** will:
-- test the connection by requesting and printing the changefeed of your DICOM service
-- deposit DICOM images from a study into the DICOM server (images are provided under the *images* folder) -- the **stow** part (**ST**ore **O**ver the **W**eb)
-- and then retrieve instances under the same study stored on the DICOM server -- the **wado** part (**W**eb **A**ccess to **D**ICOM **O**bjects)
-
-
 ---
-# Dependencies
+## Dependencies
 
 Unless you already have az, you need to install it. above az command can be installed as described [here.](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-linux?pivots=apt)
 
@@ -30,7 +34,7 @@ In your local environment, preferably create a new conda environment, and then i
 
 `pip install -r requirements.txt` 
 
-# Optional 
+## Optional 
 
 Obtain an access token for running the curl commands:
 
@@ -45,7 +49,7 @@ This will show your changefeed (recent changes on the server):
 
 
 ---
-# More details and documentation
+## More details and documentation
 Original tutorial can be found in the [Azure DICOM documentation](https://learn.microsoft.com/en-us/azure/healthcare-apis/dicom/dicomweb-standard-apis-python)
 
 The example DICOM images included in this repository are from [GitHub repository for Azure DICOM server](https://github.com/microsoft/dicom-server/tree/main/docs/dcms)
