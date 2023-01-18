@@ -7,7 +7,7 @@ from azure.identity import DefaultAzureCredential
 # there is already sample dicom files in the folder provided in this repository, but you can use your own
 path_to_dicoms_dir = "./images"
 
-base_url = f"https://healthdataworkspace-dicom1.dicom.azurehealthcareapis.com/v1"
+base_url = f"https://your_dicom_url.dicom.azurehealthcareapis.com/v1"
 
 study_uid = "1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420"; #StudyInstanceUID for all 3 examples
 series_uid = "1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652"; #SeriesInstanceUID for green-square and red-triangle
