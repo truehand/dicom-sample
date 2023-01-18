@@ -7,7 +7,7 @@ from azure.identity import DefaultAzureCredential
 # there is already sample dicom files in the folder provided in this repository, but you can use your own
 path_to_dicoms_dir = "./images"
 
-base_url = f"your_dicom_url.azurehealthcareapis.com/v1"
+base_url = f"https://healthdataworkspace-dicom1.dicom.azurehealthcareapis.com/v1"
 
 study_uid = "1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420"; #StudyInstanceUID for all 3 examples
 series_uid = "1.2.826.0.1.3680043.8.498.45787841905473114233124723359129632652"; #SeriesInstanceUID for green-square and red-triangle
@@ -16,7 +16,9 @@ instance_uid = "1.2.826.0.1.3680043.8.498.47359123102728459884412887463296905395
 from azure.identity import DefaultAzureCredential
 credential = DefaultAzureCredential()
 
-print(credential.credentials) # this can be used to find the index of the AzureCliCredential
+#print ("Available credentials:")
+#print(credential.credentials) # this can be used to find the index of the AzureCliCredential
+print("Using " + str(credential.credentials[3]) + " to authenticate")
 token = credential.credentials[3].get_token('https://dicom.healthcareapis.azure.com')
 
 bearer_token = f'Bearer {token.token}'
@@ -30,10 +32,21 @@ def encode_multipart_related(fields, boundary=None):
 
     return body, content_type
 
+## PART 0 ##
+# testing the connection by requesting the change feed
 client = requests.session()
-headers = {"Authorization":token}
+headers = {"Authorization":bearer_token}
 url= f'{base_url}/changefeed'
 
+response = client.get(url,headers=headers)
+if (response.status_code != 200):
+    print('Error! Likely not authenticated!')
+else:
+    print('Connection successful, printing change feed:')
+    print(response.text)
+
+## PART 1 ##
+print("STOW PART (STORE)")
 #upload blue-circle.dcm
 filepath = Path("./images").joinpath('green-square.dcm')
 
@@ -50,16 +63,11 @@ headers = {'Accept':'application/dicom+json', "Content-Type":content_type, "Auth
 url = f'{base_url}/studies'
 response = client.post(url, body, headers=headers, verify=False)
 
-
-response = client.get(url,headers=headers)
-if (response.status_code != 200):
-    print('Error! Likely not authenticated!')
-    
 print(response.text)
 
 ## PART 2 ##
 # retrive all instances within study
-
+print ("WADO PART (RETRIEVE)")
 url = f'{base_url}/studies/{study_uid}'
 headers = {'Accept':'multipart/related; type="application/dicom"; transfer-syntax=*', "Authorization":bearer_token}
 
@@ -75,5 +83,5 @@ for part in mpd.parts:
     # You can convert the binary body (of each part) into a pydicom DataSet
     #   And get direct access to the various underlying fields
     dcm = pydicom.dcmread(BytesIO(part.content))
-    print(dcm.PatientName)
+    print("Retrieving", dcm.PatientName)
     print(dcm.SOPInstanceUID)
