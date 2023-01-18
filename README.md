@@ -15,9 +15,9 @@ First step is to set up a DICOM Service in Azure: [Deploy DICOM](https://learn.m
 Next, [add your Azure user as a DICOM data owner after creating the service](https://learn.microsoft.com/en-us/azure/healthcare-apis/configure-azure-rbac#assign-roles-for-the-dicom-service)
 
 In the main script, change the *base_url* variable with your service url (which you will obtain from the created service). 
-Make sure to include the API version, **v1**, and to update the part `your_dicom_url` to reflect your service name, in the base url, as in:
+Make sure to include the API version, **v1**, and to update the part `your_dicom_service_name` to reflect your service name, in the base url, as in:
 
-`base_url = f"your_dicom_url.azurehealthcareapis.com/v1" # (line 10)` 
+`base_url = f"your_dicom_service_name.azurehealthcareapis.com/v1" # (line 10)` 
 
 Your service URL can be located on the Azure portal, under your DICOM Service's Overview section.
 
