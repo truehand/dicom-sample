@@ -15,9 +15,11 @@ The script **stow_and_wado.py** will:
 - deposit DICOM images from a study into the DICOM server (images are provided under the *images* folder) -- the **stow** part (**ST**ore **O**ver the **W**eb)
 - and then retrieve instances under the same study stored on the DICOM server -- the **wado** part (**W**eb **A**ccess to **D**ICOM **O**bjects)
 
-Make sure to include the API version, **v1**, at the end of the base url as in:
+Make sure to include the API version, **v1**, and the part your_dicom_url to reflect your service name, in the end of the base url, as in:
 
 `base_url = f"your_dicom_url.azurehealthcareapis.com/v1" # (line 10)` 
+
+The service URL can be located on the Azure portal, under your DICOM Service's Overview section.
 
 ---
 (Optional) Obtain an access token for running the curl commands:
