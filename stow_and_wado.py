@@ -4,7 +4,7 @@ from pathlib import Path
 from urllib3.filepost import encode_multipart_formdata, choose_boundary
 from azure.identity import DefaultAzureCredential
 
-dicom_service_name = "your_healthdata_workspace/dicom_service_name"
+# there is already sample dicom files in the folder provided in this repository, but you can use your own
 path_to_dicoms_dir = "./images"
 
 base_url = f"your_dicom_url.azurehealthcareapis.com/v1"
