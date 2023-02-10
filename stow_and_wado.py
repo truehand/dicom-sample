@@ -34,6 +34,7 @@ def encode_multipart_related(fields, boundary=None):
 
 ## PART 0 ##
 # testing the connection by requesting the change feed
+print ("Testing connection to Azure API for DICOM and retrieving change feed\n")
 client = requests.session()
 headers = {"Authorization":bearer_token}
 url= f'{base_url}/changefeed'
