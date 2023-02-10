@@ -6,7 +6,13 @@ This is a sample Python code that can interact with the Azure DICOM Service. DIC
 The script **stow_and_wado.py** will:
 - test the connection between your client and the DICOM Service by requesting and printing the changefeed of your DICOM service
 - deposit DICOM images from a study into the DICOM server (images are provided under the *images* folder) -- the **stow** part (**ST**ore **O**ver the **W**eb)
-- and then retrieve instances under the same study stored on the DICOM server -- the **wado** part (**W**eb **A**ccess to **D**ICOM **O**bjects)
+- retrieve instances under the same study stored on the DICOM server -- the **wado** part (**W**eb **A**ccess to **D**ICOM **O**bjects)
+- retrive metadata of all instances within study
+- search for series within study
+
+This diagram shows the relationship between patients, studies, series and image instances:
+
+![DICOM Metadata hierarchy](./dicom_hierarchy.png)
 
 ## How to get started
 
