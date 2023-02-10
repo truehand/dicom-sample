@@ -46,7 +46,7 @@ else:
     print(response.text)
 
 ## PART 1 ##
-print("STOW PART (STORE)")
+print("\n\nSTOW PART (STORE)\n")
 #upload blue-circle.dcm
 filepath = Path("./images").joinpath('green-square.dcm')
 
@@ -67,7 +67,7 @@ print(response.text)
 
 ## PART 2 ##
 # retrive all instances within study
-print ("WADO PART (RETRIEVE)")
+print ("\n\nWADO PART (RETRIEVE)\n")
 url = f'{base_url}/studies/{study_uid}'
 headers = {'Accept':'multipart/related; type="application/dicom"; transfer-syntax=*', "Authorization":bearer_token}
 
@@ -85,3 +85,22 @@ for part in mpd.parts:
     dcm = pydicom.dcmread(BytesIO(part.content))
     print("Retrieving", dcm.PatientName)
     print(dcm.SOPInstanceUID)
+
+## PART 3 ##
+# retrive metadata of all instances within study
+print ("\n\nWADO PART (QUERY METADATA)\n")
+url = f'{base_url}/studies/{study_uid}/metadata'
+headers = {'Accept':'application/dicom+json', "Authorization":bearer_token}
+
+response = client.get(url, headers=headers) #, verify=False)
+print(response.text)
+
+## PART 4 ##
+# search for series within study
+print ("\n\nQIDO PART (SEARCH SERIES IN STUDY)\n")
+url = f'{base_url}/studies/{study_uid}/series'
+headers = {'Accept':'application/dicom+json', "Authorization":bearer_token}
+params = {'SeriesInstanceUID':series_uid}
+
+response = client.get(url, headers=headers, params=params) #, verify=False)
+print(response.text)
